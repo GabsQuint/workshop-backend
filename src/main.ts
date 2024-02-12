@@ -2,6 +2,7 @@ import { ExpressAdapter } from "./infra/api/ExpressAdapter";
 import { HttpRouter } from './infra/api/httpRouter.api'
 import { HttpRouterInterface } from './domain/interface/httpRouter.interface'
 import { colaboradoresRoutes } from "./modules/colaborador/colaborador.routes";
+import { atasRoutes } from "./modules/ata/ata.routes";
 
 export class Main {
   private expressAdapter: ExpressAdapter;
@@ -16,7 +17,7 @@ export class Main {
     try {
       this.expressAdapter.listen(3000)
       console.info(`[Application] Initializing routes...`);
-      this.httpRouter.init([...colaboradoresRoutes])
+      this.httpRouter.init([...colaboradoresRoutes, ...atasRoutes])
     } catch (error) {
       console.error(`[Application] Error on start application: ${error}`);
     }
