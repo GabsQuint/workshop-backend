@@ -4,7 +4,7 @@ import { ControllerAllColaboradores } from '../colaborador/get-all-colaboradores
 export const commonRoutes: RouteConfigInterface[] = [
     {
         method: 'get',
-        url: `/api/teste`,
+        url: `/api/colaboradores`,
         controller: ControllerAllColaboradores
     },
 ]
