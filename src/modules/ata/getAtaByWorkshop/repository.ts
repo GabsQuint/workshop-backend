@@ -1,11 +1,11 @@
-import { IAtaByColaboradorInterface } from "./interface";
-import { AtaByColaboradorModel } from "./model";
+import { IAtaByWorkshopInterface } from "./interface";
+import { AtaByWorkshopModel } from "./model";
 import { KnexAdapter } from "../../../infra/adapter/knex.adapter";
 
-export class AtaByColaboradorRepository implements IAtaByColaboradorInterface {
+export class AtaByWorkshopRepository implements IAtaByWorkshopInterface {
     constructor(private knexAdapter: KnexAdapter) { }
 
-    async getAtaByColaborador(props: AtaByColaboradorModel): Promise<any> {
+    async getAtaByWorkshop(props: AtaByWorkshopModel): Promise<any> {
         try {
             const knex = this.knexAdapter.getKnexInstance();
             const getAta = knex('db_fast.workshops as w')

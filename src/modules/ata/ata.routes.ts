@@ -1,5 +1,5 @@
 import { RouteConfigInterface } from '../../domain/interface/routeConfig.interface';
-import { ControllerAllAtas } from './getAtaByColaborador/implementation';
+import { ControllerAllAtas } from './getAtaByWorkshop/implementation';
 
 export const atasRoutes: RouteConfigInterface[] = [
     {

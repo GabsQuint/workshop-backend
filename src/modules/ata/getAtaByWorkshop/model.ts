@@ -2,7 +2,7 @@ type AtaType = {
     workshopNome: string;
 }
 
-export class AtaByColaboradorModel {
+export class AtaByWorkshopModel {
     private _ataType: AtaType;
 
     constructor(ataType: AtaType) {
