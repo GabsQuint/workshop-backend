@@ -1,5 +1,5 @@
 import { CreateWorkshopModel } from "./model";
 
-export interface ICreateWorkshopModelInterface {
+export interface ICreateWorkshopInterface {
     createWorkshop(props:CreateWorkshopModel): Promise<any>;
 }
