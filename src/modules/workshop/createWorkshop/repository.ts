@@ -1,8 +1,8 @@
-import { ICreateWorkshopModelInterface } from "./interface";
+import { ICreateWorkshopInterface } from "./interface";
 import { CreateWorkshopModel } from "./model";
 import { KnexAdapter } from "../../../infra/adapter/knex.adapter";
 
-export class CreateWorkshopRepository implements ICreateWorkshopModelInterface {
+export class CreateWorkshopRepository implements ICreateWorkshopInterface {
     constructor(private knexAdapter: KnexAdapter) { }
 
     async createWorkshop(props: CreateWorkshopModel): Promise<any> {
