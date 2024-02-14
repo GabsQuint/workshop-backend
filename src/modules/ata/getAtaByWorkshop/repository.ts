@@ -8,11 +8,17 @@ export class AtaByWorkshopRepository implements IAtaByWorkshopInterface {
     async getAtaByWorkshop(props: AtaByWorkshopModel): Promise<any> {
         try {
             const knex = this.knexAdapter.getKnexInstance();
-            const getAta = knex('db_fast.workshops as w')
-            .join('db_fast.atas as a', 'w.Id', '=', 'a.WorkshopId')
-            .join('db_fast.colaboradores as c', 'a.ColaboradorId', '=', 'c.Id')
-            .select('w.Nome as Workshop', 'w.DataRealizacao', 'w.Descricao', 'c.Nome as Colaborador')
-            .where('w.Nome', '=', props.workshopNome);
+            const getAta = knex('db_fast.workshop as W')
+            .join('db_fast.ata as A', 'W.Id', 'A.WorkshopId')
+            .join('db_fast.ata_Colaborador as AC', 'A.Id', 'AC.AtaId')
+            .join('db_fast.colaborador as C', 'AC.ColaboradorId', 'C.Id')
+            .select([
+                'W.Nome as WorkshopNome',
+                'W.DataRealizacao as DataRealizacaoWorkshop',
+                'W.Descricao as DescricaoWorkshop',
+                'C.Nome as ColaboradorNome'
+            ])
+            .where('W.Nome', props.workshopNome);
 
             return getAta
         } catch (error) {
