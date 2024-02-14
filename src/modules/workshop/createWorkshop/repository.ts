@@ -8,7 +8,7 @@ export class CreateWorkshopRepository implements ICreateWorkshopInterface {
     async createWorkshop(props: CreateWorkshopModel): Promise<any> {
         try {
             const knex = this.knexAdapter.getKnexInstance();
-            const getAta = knex('db_fast.workshops')
+            const getAta = knex('db_fast.workshop')
             .insert({
                 Nome: props.name,
                 DataRealizacao: props.dateCompletion,

@@ -8,7 +8,7 @@ export class CreateColaboradorRepository implements ICreateColaboradorInterface 
     async createWorkshop(props: CreateColaboradorModel): Promise<any> {
         try {
             const knex = this.knexAdapter.getKnexInstance();
-            const getAta = knex('db_fast.colaboradores')
+            const getAta = knex('db_fast.colaborador')
             .insert({
                 Nome: props.name
             })
