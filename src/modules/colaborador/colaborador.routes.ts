@@ -10,7 +10,7 @@ export const colaboradoresRoutes: RouteConfigInterface[] = [
     },
     {
         method: 'post',
-        url: `/api/colaboradores`,
+        url: `/api/colaborador`,
         controller: CreateColaborador
     },
 ]

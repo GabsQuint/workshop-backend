@@ -18,7 +18,7 @@ export const atasRoutes: RouteConfigInterface[] = [
     },
     {
         method: 'post',
-        url: `/api/atas`,
+        url: `/api/ata`,
         controller: CreateAta
     },
     {
