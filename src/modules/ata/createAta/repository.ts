@@ -8,9 +8,14 @@ export class CreateAtaRepository implements ICreateAtaInterface {
     async createAta(props: CreateAtaModel): Promise<any> {
         try {
             const knex = this.knexAdapter.getKnexInstance();
+            const idWorkshop = knex('db_fast.workshop')
+            .whereLike('Nome', props.workshopName)
+            .select('db_fast.workshop.Id')
+
+
             const createAta = knex('db_fast.ata')
             .insert({
-                WorkshopId: props.workshopId
+                WorkshopId: idWorkshop
             })
 
             return createAta

@@ -1,19 +1,19 @@
 export type ataType = {
-    workshopId:number 
+    workshopName:string 
 }
 export class CreateAtaModel {
-    private _workshopId: number;
+    private _workshopName: string;
 
     constructor(props: ataType) {
-        this._workshopId = props.workshopId;
+        this._workshopName = props.workshopName;
     }
 
-    get workshopId(): number {
-        return this._workshopId
+    get workshopName(): string {
+        return this._workshopName
     }
 
-    set workshopId(value: number) {
-        this._workshopId = value;
+    set workshopName(value: string) {
+        this._workshopName = value;
     }
 
 }
