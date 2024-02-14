@@ -2,9 +2,9 @@ import { CreateWorkshopModel } from './model';
 import { ICreateWorkshopInterface } from './interface';
 
 export class CreateWorkshopUseCase {
-    constructor(private ataByDateRepository: ICreateWorkshopInterface) { }
+    constructor(private createWorkshopRepository: ICreateWorkshopInterface) { }
 
     async execute(props:CreateWorkshopModel): Promise<CreateWorkshopModel> {
-        return await this.ataByDateRepository.createWorkshop(props);
+        return await this.createWorkshopRepository.createWorkshop(props);
     }
 }
