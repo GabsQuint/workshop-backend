@@ -1,14 +1,14 @@
 export type colaboradorType = {
     ataId:number 
-    colaboradorId: number
+    colaboradorName: string
 }
 export class AddColaboradorModel {
     private _ataId: number;
-    private _colaboradorId: number;
+    private _colaboradorName: string;
 
     constructor(props: colaboradorType) {
         this._ataId = props.ataId;
-        this._colaboradorId = props.colaboradorId;
+        this._colaboradorName = props.colaboradorName;
     }
 
     get ataId(): number {
@@ -19,12 +19,12 @@ export class AddColaboradorModel {
         this._ataId = value;
     }
 
-    get colaboradorId(): number {
-        return this._colaboradorId
+    get colaboradorName(): string {
+        return this._colaboradorName
     }
 
-    set colaboradorId(value: number) {
-        this._colaboradorId = value;
+    set colaboradorName(value: string) {
+        this._colaboradorName = value
     }
 
 }

@@ -8,10 +8,15 @@ export class AddColaboradorRepository implements IAddColaboradorInterface {
     async addColaborador(props: AddColaboradorModel): Promise<any> {
         try {
             const knex = this.knexAdapter.getKnexInstance();
+            const idColaborador = knex('db_fast.colaborador')
+            .whereLike('Nome', props.colaboradorName)
+            .select('db_fast.colaborador.Id')
+
+
             const addColaborador = knex('db_fast.ata_colaborador')
             .insert({
                 AtaId: props.ataId,
-                ColaboradorId: props.colaboradorId
+                ColaboradorId: idColaborador
             })
 
             return addColaborador
