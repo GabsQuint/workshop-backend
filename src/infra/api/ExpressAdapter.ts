@@ -1,6 +1,8 @@
 import compression from 'compression';
 import express, { Express, NextFunction, Request, Response, Router } from 'express';
 import cors from "cors";
+import swaggerUi from "swagger-ui-express";
+import swaggerDocs from "../docs/swagger.json"
 
 export class ExpressAdapter {
     app: Express;
@@ -17,6 +19,7 @@ export class ExpressAdapter {
             console.error(err.stack);
             res.status(500).send('Something broke!');
         });
+        this.app.use("/api/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
     }
 
     on(method: string, url: string, callback: Function) {

@@ -1,0 +1,298 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+        "title": "Fast Backend",
+        "description": "API to controll workshop.",
+        "version": "0.0.2"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:3000/api",
+            "description": "Workshop backend"
+        }
+    ],
+    "tags": [
+        {
+            "name": "Atas"
+        },
+        {
+            "name": "Colaboradores"
+        },
+        {
+            "name": "Workshop"
+        }
+    ],
+    "paths": {
+        "/colaboradores": {
+            "get": {
+                "tags": [
+                    "Colaboradores"
+                ],
+                "summary": "get all colaboradores",
+                "responses": {
+                    "200": {
+                        "description": "Success test",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "statusCode": {
+                                    "type": "integer"
+                                },
+                                "response": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "ColaboradorNome": {
+                                                "type": "string"
+                                            },
+                                            "WorkshopNome": {
+                                                "type": "string"
+                                            },
+                                            "DataRealizacaoWorkshop": {
+                                                "type": "string",
+                                                "format": "date-time"
+                                            },
+                                            "DescricaoWorkshop": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    }
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/atas": {
+            "get": {
+                "summary": "get all atas by workshop name",
+                "tags": [
+                    "Atas"
+                ],
+                "parameters": [
+                    {
+                        "name": "workshopNome",
+                        "in": "query",
+                        "required": true,
+                        "description": "Nome do workshop",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successfully with query",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "statusCode": {
+                                            "type": "integer",
+                                            "example": 200
+                                        },
+                                        "response": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "WorkshopNome": {
+                                                        "type": "string",
+                                                        "example": "Workshop Teste2"
+                                                    },
+                                                    "DataRealizacaoWorkshop": {
+                                                        "type": "string",
+                                                        "example": "2024-02-12T03:00:00.000Z"
+                                                    },
+                                                    "DescricaoWorkshop": {
+                                                        "type": "string",
+                                                        "example": "testando gets"
+                                                    },
+                                                    "ColaboradorNome": {
+                                                        "type": "string",
+                                                        "example": "Guilherme Bianor"
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Successfully with query"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/atasByDate": {
+            "get": {
+                "summary": "get all atas by date",
+                "tags": [
+                    "Atas"
+                ],
+                "parameters": [
+                    {
+                        "name": "data",
+                        "in": "query",
+                        "required": true,
+                        "description": "Data para filtrar as atas",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successfully with query",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "statusCode": {
+                                            "type": "integer",
+                                            "example": 200
+                                        },
+                                        "response": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "WorkshopNome": {
+                                                        "type": "string",
+                                                        "example": "Workshop Teste2"
+                                                    },
+                                                    "DataRealizacaoWorkshop": {
+                                                        "type": "string",
+                                                        "example": "2024-02-12T03:00:00.000Z"
+                                                    },
+                                                    "DescricaoWorkshop": {
+                                                        "type": "string",
+                                                        "example": "testando gets"
+                                                    },
+                                                    "ColaboradorNome": {
+                                                        "type": "string",
+                                                        "example": "Guilherme Bianor"
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Successfully with query"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/workshops": {
+            "post": {
+                "summary": "create a workshop",
+                "tags": [
+                    "Workshop"
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Workshop Teste2"
+                                    },
+                                    "dateCompletion": {
+                                        "type": "string",
+                                        "example": "2024-02-12"
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "example": "testando gets"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Workshop created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "statusCode": {
+                                            "type": "integer",
+                                            "example": 200
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Workshop created successfully"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/colaborador": {
+            "post": {
+                "summary": "create a colaborador",
+                "tags": [
+                    "Colaboradores"
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Gabriel Reis"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Colaborador created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "statusCode": {
+                                            "type": "integer",
+                                            "example": 200
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Colaborador created successfully"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
