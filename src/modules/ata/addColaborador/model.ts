@@ -24,7 +24,7 @@ export class AddColaboradorModel {
     }
 
     set colaboradorId(value: number) {
-        this._ataId = value;
+        this._colaboradorId = value;
     }
 
 }
