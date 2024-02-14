@@ -3,6 +3,7 @@ import { ControllerAllAtas } from './getAtaByWorkshop/implementation';
 import { ControllerAllAtasByDate } from './getAtaByDate/implementation';
 import { CreateAta } from './createAta/implementation';
 import { AddColaborador } from './addColaborador/implementation';
+import { DeleteColaborador } from './deleteColaborador/implementation';
 
 export const atasRoutes: RouteConfigInterface[] = [
     {
@@ -24,5 +25,10 @@ export const atasRoutes: RouteConfigInterface[] = [
         method: 'put',
         url: `/api/atas/colaboradores`,
         controller: AddColaborador
+    },
+    {
+        method: 'delete',
+        url: `/api/atas/colaboradores`,
+        controller: DeleteColaborador
     }
 ]
