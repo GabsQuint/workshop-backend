@@ -2,6 +2,7 @@ import { RouteConfigInterface } from '../../domain/interface/routeConfig.interfa
 import { ControllerAllAtas } from './getAtaByWorkshop/implementation';
 import { ControllerAllAtasByDate } from './getAtaByDate/implementation';
 import { CreateAta } from './createAta/implementation';
+import { AddColaborador } from './addColaborador/implementation';
 
 export const atasRoutes: RouteConfigInterface[] = [
     {
@@ -18,5 +19,10 @@ export const atasRoutes: RouteConfigInterface[] = [
         method: 'post',
         url: `/api/atas`,
         controller: CreateAta
+    },
+    {
+        method: 'put',
+        url: `/api/atas/colaboradores`,
+        controller: AddColaborador
     }
 ]
